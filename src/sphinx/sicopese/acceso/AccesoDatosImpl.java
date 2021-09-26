@@ -110,10 +110,25 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
     public void crear(String nombreRecurso) throws AccesoDatosEx {
+        File file=new File(nombreRecurso);
+         try {
+            PrintWriter pw = new PrintWriter(new FileWriter(file));
+            pw.close();
+             System.out.println("Recurso Creado con Exito!");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            throw new AccesoDatosEx(ex.getMessage());
+        }
+        
     }
 
     @Override
     public void borrar(String nombreRecurso) throws AccesoDatosEx {
+        File file=new File(nombreRecurso);
+        if(file.exists())
+            file.delete();
+        else
+            throw new AccesoDatosEx("Recurso no existe!!");
     }
     
 }
