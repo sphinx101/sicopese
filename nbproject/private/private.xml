@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/model/PeliculaSerie.java</file>
             <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/acceso/AccesoDatosImpl.java</file>
-            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/model/Serie.java</file>
-            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/model/Pelicula.java</file>
-            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/acceso/interfaces/IAccesoDatos.java</file>
+            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/controller/CatalagoControllerImpl.java</file>
+            <file>file:/D:/javaproject/sicopese/src/sphinx/sicopese/controller/interfaces/ICatalogoController.java</file>
         </group>
     </open-files>
 </project-private>

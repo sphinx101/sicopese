@@ -36,12 +36,12 @@ public class AccesoDatosImpl implements IAccesoDatos {
                
                String tipo=datos[0];
                String nombre=datos[1];
-               int annoestreno=Integer.valueOf(datos[2]);
+               int annoestreno=Integer.parseInt(datos[2]);
                String director=datos[3];
                String urlimagen=datos[4];
-               int duracion=Integer.valueOf(datos[5]);
+               int duracion=Integer.parseInt(datos[5]);
                
-               if(tipo.equals("pelicula")){
+               if(tipo.equalsIgnoreCase("pelicula")){
                    PeliculaSeries.add(new Pelicula(nombre,annoestreno,director,urlimagen,tipo,duracion));
                }else{
                    PeliculaSeries.add(new Serie(nombre,annoestreno,director,urlimagen,tipo,duracion));
@@ -81,21 +81,23 @@ public class AccesoDatosImpl implements IAccesoDatos {
     }
 
     @Override
-    public String buscar(String nombreRecurso, String buscar) throws LecturaDatosEx {
+    public String buscar(String nombreRecurso, String titulo) throws LecturaDatosEx {
         File file=new File(nombreRecurso);
         String res=null;
         try {
             BufferedReader br=new BufferedReader(new FileReader(file));
-            String row=br.readLine();
+            String row=br.readLine();           
             int i=1;
             while (row != null) {
-                if(buscar != null && buscar.equalsIgnoreCase(row)){
+                String[] datos=row.split("\\|");
+                if(titulo != null && titulo.equalsIgnoreCase(datos[1])){
                     res="Titulo encontrado en la linea No. "+i;
                     row=null;
                 }else{
                     row=br.readLine();
                     i++;
                 }
+                datos=null;
             }
             br.close();
         } catch (FileNotFoundException ex) {
